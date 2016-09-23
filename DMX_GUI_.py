@@ -13,7 +13,7 @@ root.title('DMX Controller')
 def about1():
     tkMessageBox.showinfo('About',
                           'Hello \nSoftware Version is 1.0  \nIf you have any questions please contact me at \n'
-                          '111@111.com ')
+                          '******** ')
 
 subMenu = Menu(menu)
 menu.add_cascade(label="File", menu=subMenu)
@@ -58,21 +58,22 @@ def CH3(self):
 def CH4(self):
     d = sc4.get()
     data = senddmx(dmxdata, 4, d)
-
-scl = Scale(root, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Red",command=CH1)
+Main = Frame (root)
+scl = Scale(Main, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Red",command=CH1)
 scl.grid(row=0, column=0, )
 
-sc2 = Scale(root, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Green",command=CH2)
+sc2 = Scale(Main, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Green",command=CH2)
 sc2.grid(row=0, column=1, )
 
-sc3 = Scale(root, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Blue",command=CH3)
+sc3 = Scale(Main, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Blue",command=CH3)
 sc3.grid(row=0, column=2, )
 
-sc4 = Scale(root, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Amber",command=CH4)
+sc4 = Scale(Main, from_=255, to=0,  resolution=1,width=Wi,length=Len,label="Amber",command=CH4)
 sc4.grid(row=0, column=3, )
+Main.pack()
 
-
-
+status = Label(root, text=" DMX Controller V1.0 by David Gooch ", bd=1, relief=SUNKEN, anchor=E)
+status.pack(side=BOTTOM, fill=X)
 
 root.mainloop()
 
